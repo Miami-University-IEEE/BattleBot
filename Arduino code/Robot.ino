@@ -78,19 +78,18 @@ void setup() {
 void loop() {
   if(DataPacket.receiveData()) {
     getNewData();
+    
   }
 
-  Serial.println("Hello");
-
-  Serial.print(valueSwitchA + "," + valueJoyA_y);
-  Serial.println("," + valueJoyA_x);
-
-  Serial.println("");
-/*
   if(valueSwitchA == 1) {
-    Serial.println(map(valueJoyA_y, 0, 1023, -127, 127) + "," + map(valueJoyA_x, 0, 1023, -127, 127));
+
+    Serial.print(map(valueJoyA_y, 0, 1023, -127, 127));
+    Serial.print(", ");
+    Serial.println(map(valueJoyA_x, 0, 1023, -127, 127));
+    
+    Saber.drive(map(valueJoyA_y, 0, 1023, -127, 127));
+    Saber.turn(map(valueJoyA_x, 0, 1023, -127, 127));
   }
-  */
   
   delay(100);
 }
